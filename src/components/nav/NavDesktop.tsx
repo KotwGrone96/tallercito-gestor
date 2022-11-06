@@ -1,11 +1,7 @@
-interface NavProps {
-  isOpen: boolean;
-  setIsOpen: () => any;
-}
 import { NavLink, useNavigate } from 'react-router-dom';
 import { navItems } from './navItems';
 
-export default function Nav({ isOpen, setIsOpen }: NavProps) {
+export default function NavDesktop() {
   const navigate = useNavigate();
 
   const logOut = () => {
@@ -15,18 +11,15 @@ export default function Nav({ isOpen, setIsOpen }: NavProps) {
   return (
     <>
       <nav
-        className={`lg:hidden w-64 absolute top-0 left-0 z-[60] transition-transform duration-700 ${
-          isOpen ? 'translate-x-0' : '-translate-x-[110%]'
-        }`}
+        className='hidden lg:block w-[25%] '
         aria-label='Sidebar'
       >
-        <div className='overflow-y-auto py-4 px-3 bg-purple-200 outline outline-purple-700'>
+        <div className='overflow-y-auto py-4 px-3 bg-purple-200 min-h-screen'>
           <ul className='space-y-2'>
             {navItems.map((navItem) => (
               <li key={navItem.title}>
                 <NavLink
                   to={navItem.path}
-                  onClick={setIsOpen}
                   className={({ isActive }) =>
                     isActive
                       ? 'flex items-center p-2 text-base font-normal rounded-lg bg-purple-900 text-white'
