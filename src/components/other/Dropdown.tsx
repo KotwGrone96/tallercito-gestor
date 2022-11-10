@@ -1,12 +1,13 @@
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { ProductsContext } from '../../context/ProductsContext';
 
 export default function Dropdown() {
   const context = useContext(ProductsContext);
   const { productsDropD, setProductsDropD, currentName, setCurrentName } = context!;
+  const productsDropDown = useRef<HTMLDivElement | null>(null);
 
   const showMenu = () => {
-    const dropdownProducts = document.getElementById('products-dropdown') as HTMLDivElement;
+    const dropdownProducts = productsDropDown.current!;
     if (!productsDropD) {
       dropdownProducts.classList.remove('hidden');
       setProductsDropD(true);
@@ -44,6 +45,7 @@ export default function Dropdown() {
       {/* Dropdown menu */}
       <div
         id='products-dropdown'
+        ref={productsDropDown}
         className='absolute hidden z-10 w-44 bg-purple-200 rounded-xl divide-y divide-gray-100 shadow border border-purple-900 top-14'
       >
         <ul

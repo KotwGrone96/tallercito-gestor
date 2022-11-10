@@ -1,11 +1,15 @@
 import ProductImg from './../../assets/product.jpg';
 
-export default function ProductTable() {
+interface tableProps {
+  local: string;
+}
+
+export default function ProductTable({ local }: tableProps) {
   return (
-    <div className='p-4 w-full bg-purple-200 rounded-lg border shadow-md sm:p-8  '>
+    <div className='p-4 w-full bg-purple-200 rounded-lg border shadow-md sm:p-8 lg:hidden'>
       <div className='flex justify-between items-center mb-4'>
         <h5 className='text-xl font-bold leading-none text-purple-700 underline uppercase underline-offset-2'>
-          General
+          {local}
         </h5>
         <p className='text-sm font-medium text-purple-700 uppercase'>Cantidad Total</p>
       </div>

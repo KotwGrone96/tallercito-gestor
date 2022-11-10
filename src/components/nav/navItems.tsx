@@ -1,7 +1,7 @@
 export const navItems = [
   {
     title: 'General',
-    path: '/eltallercitogestor/dashboard',
+    path: '/eltallercitogestor/dashboard/todos',
     img: (
       <svg
         aria-hidden='true'
@@ -17,7 +17,7 @@ export const navItems = [
   },
   {
     title: 'Mercado S.C #60',
-    path: '/eltallercitogestor/dashboard/local?id=1',
+    path: '/eltallercitogestor/dashboard/mercadoSC60',
     img: (
       <svg
         xmlns='http://www.w3.org/2000/svg'
@@ -31,7 +31,7 @@ export const navItems = [
   },
   {
     title: 'Mercado S.C #23',
-    path: '/eltallercitogestor/dashboard/local?id=1',
+    path: '/eltallercitogestor/dashboard/mercadoSC23',
     img: (
       <svg
         xmlns='http://www.w3.org/2000/svg'
@@ -45,7 +45,7 @@ export const navItems = [
   },
   {
     title: 'Local San Martín',
-    path: '/eltallercitogestor/dashboard/local?id=1',
+    path: '/eltallercitogestor/dashboard/local/localSanMartin',
     img: (
       <svg
         xmlns='http://www.w3.org/2000/svg'

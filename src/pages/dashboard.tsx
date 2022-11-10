@@ -6,7 +6,7 @@ import { ProductsContextProvider } from '../context/ProductsContext';
 import Nav from '../components/nav/Nav';
 import NavDesktop from '../components/nav/NavDesktop';
 import { useState } from 'react';
-import ProductTable from '../components/productTable/ProductTable';
+import Table from '../components/productTable/Table';
 
 export default function Dashboard() {
   const [navIsOpen, setNavIsOpen] = useState(false);
@@ -54,8 +54,7 @@ export default function Dashboard() {
               </div>
 
               <div className='w-full max-w-5xl lg:max-w-none m-auto lg:m-0 p-4'>
-                {/* COMPONENTE PRINCIPAL DE PRODUCTOS */}
-                <ProductTable />
+                <Table />
               </div>
             </div>
           </div>
