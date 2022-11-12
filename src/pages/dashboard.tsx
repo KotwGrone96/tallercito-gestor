@@ -7,6 +7,7 @@ import Nav from '../components/nav/Nav';
 import NavDesktop from '../components/nav/NavDesktop';
 import { useState } from 'react';
 import Table from '../components/productTable/Table';
+import { Outlet } from 'react-router-dom';
 
 export default function Dashboard() {
   const [navIsOpen, setNavIsOpen] = useState(false);
@@ -37,7 +38,7 @@ export default function Dashboard() {
             />
           </div>
           <div>
-            <h2 className='text-2xl font-bold italic text-white'>El Tallercito</h2>
+            <h2 className='text-2xl lg:text-4xl font-bold italic text-white'>El Tallercito</h2>
           </div>
         </header>
         <main className='w-full relative min-h-screen'>
@@ -47,16 +48,7 @@ export default function Dashboard() {
           />
           <div className='lg:flex items-start w-full '>
             <NavDesktop />
-            <div className='w-full'>
-              <SearchBar />
-              <div className='w-full m-auto max-w-2xl flex justify-center p-4 relative'>
-                <Dropdown />
-              </div>
-
-              <div className='w-full max-w-5xl lg:max-w-none m-auto lg:m-0 p-4'>
-                <Table />
-              </div>
-            </div>
+            <Outlet />
           </div>
         </main>
       </>

@@ -45,7 +45,7 @@ export const navItems = [
   },
   {
     title: 'Local San Martín',
-    path: '/eltallercitogestor/dashboard/local/localSanMartin',
+    path: '/eltallercitogestor/dashboard/localSanMartin',
     img: (
       <svg
         xmlns='http://www.w3.org/2000/svg'
