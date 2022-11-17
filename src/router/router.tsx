@@ -3,6 +3,7 @@ import Login from './../pages/login';
 import Dashboard from '../pages/dashboard';
 import Table from '../components/productTable/Table';
 import AddProduct from '../pages/AddProduct';
+import LittleStock from '../pages/LittleStock';
 
 const router = createBrowserRouter([
   {
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'pocostock',
-        element: <h1>POCO STOCK</h1>,
+        element: <LittleStock />,
       },
     ],
   },

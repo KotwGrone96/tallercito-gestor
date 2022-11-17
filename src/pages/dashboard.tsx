@@ -1,7 +1,7 @@
 import NavBtn from './../assets/navbtn.svg';
 import CloseNavBtn from './../assets/closenavbtn.svg';
 import SearchBar from '../components/searchBar/SearchBar';
-import Dropdown from '../components/other/Dropdown';
+import Dropdown from '../components/DropDown/Dropdown';
 import { ProductsContextProvider } from '../context/ProductsContext';
 import Nav from '../components/nav/Nav';
 import NavDesktop from '../components/nav/NavDesktop';

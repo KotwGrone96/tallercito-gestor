@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "nombreProducto": "Disfraz superman",
+    "proveedor": "El mamitas",
+    "categoria": "Disfraces",
+    "sku": "1234",
+    "cantidadTotal": 20,
+    "precio": 500,
+    "cantidadPorLocal": [
+      {
+        "id": 1,
+        "nombreLocal": "Mercado S.C. #60",
+        "cantidadLocal": 10
+      },
+      {
+        "id": 2,
+        "nombreLocal": "Mercado S.C. #23",
+        "cantidadLocal": 10
+      },
+      {
+        "id": 3,
+        "nombreLocal": "San Martín",
+        "cantidadLocal": 0
+      }
+    ]
+  },
+  {}
+]

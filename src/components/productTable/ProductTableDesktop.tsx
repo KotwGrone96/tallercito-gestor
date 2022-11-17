@@ -35,6 +35,12 @@ export default function ProductTableDesktop({ local }: tableProps) {
               scope='col'
               className='py-3 px-6'
             >
+              Precio
+            </th>
+            <th
+              scope='col'
+              className='py-3 px-6'
+            >
               Categoría
             </th>
             <th
@@ -71,6 +77,7 @@ export default function ProductTableDesktop({ local }: tableProps) {
                 <div className='text-base font-medium'>Disfraz Superman</div>
               </div>
             </th>
+            <td className='py-4 px-6 text-green-700 font-semibold'>$ 1234</td>
             <td className='py-4 px-6'>Disfraces</td>
             <td className='py-4 px-6'>
               <div className='flex items-center'>
@@ -116,6 +123,7 @@ export default function ProductTableDesktop({ local }: tableProps) {
                 <div className='text-base font-medium'>Disfraz Superman</div>
               </div>
             </th>
+            <td className='py-4 px-6 text-green-700 font-semibold'>$ 1234</td>
             <td className='py-4 px-6'>Disfraces</td>
             <td className='py-4 px-6'>
               <div className='flex items-center'>
@@ -160,6 +168,7 @@ export default function ProductTableDesktop({ local }: tableProps) {
                 <div className='text-base font-medium'>Disfraz Superman</div>
               </div>
             </th>
+            <td className='py-4 px-6 text-green-700 font-semibold'>$ 1234</td>
             <td className='py-4 px-6'>Disfraces</td>
             <td className='py-4 px-6'>
               <div className='flex items-center'>
@@ -204,6 +213,7 @@ export default function ProductTableDesktop({ local }: tableProps) {
                 <div className='text-base font-medium'>Disfraz Superman</div>
               </div>
             </th>
+            <td className='py-4 px-6 text-green-700 font-semibold'>$ 1234</td>
             <td className='py-4 px-6'>Disfraces</td>
             <td className='py-4 px-6'>
               <div className='flex items-center'>

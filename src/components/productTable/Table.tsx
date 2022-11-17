@@ -1,5 +1,5 @@
 import NavDesktop from '../nav/NavDesktop';
-import Dropdown from '../other/Dropdown';
+import Dropdown from '../DropDown/Dropdown';
 import SearchBar from '../searchBar/SearchBar';
 import ProductTable from './ProductTable';
 import ProductTableDesktop from './ProductTableDesktop';
