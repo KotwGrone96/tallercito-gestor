@@ -6,6 +6,7 @@ import ProductTableDesktop from './ProductTableDesktop';
 
 interface tableProps {
   local: string;
+  idLocal: number;
 }
 
 export default function Table({ local }: tableProps) {

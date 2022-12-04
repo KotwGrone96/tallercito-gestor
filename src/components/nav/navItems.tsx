@@ -30,8 +30,8 @@ export const navItems = [
     ),
   },
   {
-    title: 'Mercado S.C #23',
-    path: '/eltallercitogestor/dashboard/mercadoSC23',
+    title: 'Mercado S.C #84',
+    path: '/eltallercitogestor/dashboard/mercadoSC84',
     img: (
       <svg
         xmlns='http://www.w3.org/2000/svg'
