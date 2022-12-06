@@ -32,4 +32,11 @@ interface Product {
   fechaUltimaModificacion: string;
   categoria: string;
   img: string;
+  local?: string;
+  idLocal?: number;
+}
+
+interface AllPromiseItem {
+  status: string;
+  value: FetchResponse;
 }
