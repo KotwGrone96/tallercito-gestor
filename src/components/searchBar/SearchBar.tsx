@@ -16,7 +16,7 @@ export default function SearchBar() {
     const getAllProducts = async () => {
       const res: FetchResponse = await simpleFetchPost(
         JSON.stringify(userSession),
-        'http://localhost:80/tallercito/getAllProducts.php'
+        'https://nelsongamerodev.com/eltallercitogestor/api/getAllProducts.php'
       );
       if (!res.ok) {
         setIsLoading(false);

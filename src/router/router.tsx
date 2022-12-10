@@ -5,6 +5,7 @@ import Table from '../components/productTable/Table';
 import AddProduct from '../pages/AddProduct';
 import LittleStock from '../pages/LittleStock';
 import { SessionContextProvider } from '../context/SessionContext';
+import { TableContextProvider } from '../context/TableContext';
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,9 @@ const router = createBrowserRouter([
     path: 'eltallercitogestor/dashboard',
     element: (
       <SessionContextProvider>
-        <Dashboard />
+        <TableContextProvider>
+          <Dashboard />
+        </TableContextProvider>
       </SessionContextProvider>
     ),
 
@@ -39,6 +42,7 @@ const router = createBrowserRouter([
           <Table
             local='Mercado S.C. #60'
             idLocal={2}
+            name='storeSanCristobal60'
           />
         ),
       },
@@ -48,6 +52,7 @@ const router = createBrowserRouter([
           <Table
             local='Mercado S.C. #84'
             idLocal={3}
+            name='storeSanCristobal84'
           />
         ),
       },
@@ -57,6 +62,7 @@ const router = createBrowserRouter([
           <Table
             local='local San Martin'
             idLocal={1}
+            name='storeSanMartin'
           />
         ),
       },

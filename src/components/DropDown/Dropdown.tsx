@@ -2,11 +2,17 @@ import { useContext, useRef, useEffect, useState } from 'react';
 import { ProductsContext } from '../../context/ProductsContext';
 import { SessionContext } from '../../context/SessionContext';
 import simpleFetchPost from '../../helpers/simpleFetchPost';
-import { Categories, FetchResponse } from './../../vite-env';
+import { FetchResponse } from './../../vite-env';
 
 export default function Dropdown() {
-  const { productsDropD, setProductsDropD, currentName, setCurrentName } =
-    useContext(ProductsContext)!;
+  const {
+    productsDropD,
+    setProductsDropD,
+    currentName,
+    setCurrentName,
+    setCategories,
+    categories,
+  } = useContext(ProductsContext)!;
   const productsDropDown = useRef<HTMLDivElement | null>(null);
 
   const showMenu = () => {
@@ -21,14 +27,17 @@ export default function Dropdown() {
   };
   const { userSession } = useContext(SessionContext)!;
 
-  const [categories, setCategories] = useState<Categories[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getCategories = async () => {
+      if (categories.length > 0) {
+        setIsLoading(false);
+        return;
+      }
       const res: FetchResponse = await simpleFetchPost(
         JSON.stringify(userSession),
-        'http://localhost:80/tallercito/getCategories.php'
+        'https://nelsongamerodev.com/eltallercitogestor/api/getCategories.php'
       );
 
       if (!res.ok) {

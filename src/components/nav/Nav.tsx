@@ -15,7 +15,7 @@ export default function Nav({ isOpen, setIsOpen }: NavProps) {
   return (
     <>
       <nav
-        className={`lg:hidden w-64 absolute top-0 left-0 z-[60] transition-transform duration-700 ${
+        className={`lg:hidden w-64 fixed top-20 left-0 z-[60] transition-transform duration-700 ${
           isOpen ? 'translate-x-0' : '-translate-x-[110%]'
         }`}
         aria-label='Sidebar'

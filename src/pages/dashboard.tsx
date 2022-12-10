@@ -48,7 +48,7 @@ export default function Dashboard() {
   return (
     <ProductsContextProvider>
       <>
-        <header className='w-full h-20 bg-purple-900 flex justify-between items-center px-6'>
+        <header className='w-full h-20 bg-purple-900 flex justify-between items-center px-6 fixed z-[100]'>
           <div
             className='w-9 h-9 cursor-pointer lg:hidden'
             onClick={handleResponsiveNav}
@@ -67,7 +67,7 @@ export default function Dashboard() {
             <h2 className='text-2xl lg:text-4xl font-bold italic text-white'>El Tallercito</h2>
           </div>
         </header>
-        <main className='w-full relative min-h-screen'>
+        <main className='w-full relative min-h-screen pt-20'>
           <Nav
             isOpen={navIsOpen}
             setIsOpen={handleResponsiveNav}

@@ -10,6 +10,7 @@ export interface FetchResponse {
   userStatus?: string;
   categories?: Categories[];
   products?: Product[];
+  proveedores?: Proveedor[];
 }
 
 export interface UserProps {
@@ -35,8 +36,9 @@ interface Product {
   local?: string;
   idLocal?: number;
 }
-
-interface AllPromiseItem {
-  status: string;
-  value: FetchResponse;
+interface Proveedor {
+  id: number;
+  nombreProveedor: string;
+  direccion: string;
+  telefono: string;
 }

@@ -20,7 +20,7 @@ export default function Login() {
     setIsLoading(true);
     const res: FetchResponse = await simpleFetchPost(
       JSON.stringify(loginForm),
-      'http://localhost:80/tallercito/login.php'
+      'https://nelsongamerodev.com/eltallercitogestor/api/login.php'
     );
     if (!res.ok) {
       window.alert(res.msg);

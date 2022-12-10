@@ -11,7 +11,7 @@ export default function NavDesktop() {
   return (
     <>
       <nav
-        className='hidden lg:block w-[25%] max-w-[250px]'
+        className='hidden lg:block w-[25%] max-w-[250px] fixed top-20 left-0'
         aria-label='Sidebar'
       >
         <div className='overflow-y-auto py-4 px-3 bg-purple-200 min-h-screen'>

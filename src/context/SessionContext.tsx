@@ -35,7 +35,7 @@ export const SessionContextProvider = ({ children }: Props) => {
       }
       const res: FetchResponse = await simpleFetchPost(
         userCookie,
-        'http://localhost:80/tallercito/login.php'
+        'https://nelsongamerodev.com/eltallercitogestor/api/login.php'
       );
       if (!res.ok) {
         window.alert(res.msg);
