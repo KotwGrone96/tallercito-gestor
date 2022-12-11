@@ -23,7 +23,7 @@ interface Categories {
 }
 
 interface Product {
-  id: number;
+  id: number | string;
   nombreProducto: string;
   sku: string;
   precio: number;
@@ -35,6 +35,8 @@ interface Product {
   img: string;
   local?: string;
   idLocal?: number;
+  user?: string;
+  pass?: String;
 }
 interface Proveedor {
   id: number;

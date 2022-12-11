@@ -4,6 +4,7 @@ import Dashboard from '../pages/dashboard';
 import Table from '../components/productTable/Table';
 import AddProduct from '../pages/AddProduct';
 import LittleStock from '../pages/LittleStock';
+import EditProduct from '../pages/EditProduct';
 import { SessionContextProvider } from '../context/SessionContext';
 import { TableContextProvider } from '../context/TableContext';
 
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
       {
         path: 'pocostock',
         element: <LittleStock />,
+      },
+      {
+        path: 'editarProducto',
+        element: <EditProduct />,
       },
     ],
   },

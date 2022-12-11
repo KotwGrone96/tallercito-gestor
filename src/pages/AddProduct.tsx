@@ -111,7 +111,7 @@ export default function AddProduct() {
 
   return (
     <>
-      <div className='w-full'>
+      <div className='w-full lg:pl-[260px]'>
         {/* VENTANA MODAL */}
         <div
           id='modal'

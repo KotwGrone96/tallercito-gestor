@@ -3,7 +3,7 @@ import img from './../assets/product.jpg';
 export default function LittleStock() {
   return (
     <>
-      <div className='w-full'>
+      <div className='w-full lg:pl-[260px]'>
         <div className='w-full'>
           <h2 className='p-4 lg:pl-10 lg:pt-6 font-semibold italic text-2xl text-purple-900 lg:text-3xl'>
             Poco Stock

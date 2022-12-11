@@ -1,4 +1,5 @@
 import { Product } from './../../vite-env';
+import { Link } from 'react-router-dom';
 
 interface tableProps {
   local: string;
@@ -100,12 +101,14 @@ export default function ProductTableDesktop({ local, products, idLocal }: tableP
                       >
                         Distribuir
                       </button>
-                      <button
-                        type='button'
-                        className='focus:outline-none text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300  rounded-lg text-base px-3 py-1 mr-2'
-                      >
-                        Editar
-                      </button>
+                      <Link to={`../editarProducto?id=${product.id}`}>
+                        <button
+                          type='button'
+                          className='focus:outline-none text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300  rounded-lg text-base px-3 py-1 mr-2'
+                        >
+                          Editar
+                        </button>
+                      </Link>
                     </>
                   ) : (
                     <>
