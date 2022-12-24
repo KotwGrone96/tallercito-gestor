@@ -47,12 +47,14 @@ export default function ProductTable({ local, products, idLocal }: tableProps) {
                   <div className='p-2 flex justify-start items-center w-full'>
                     {idLocal === 0 ? (
                       <>
-                        <button
-                          type='button'
-                          className='focus:outline-none text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:blue-green-300 rounded-lg text-lg px-3 py-1 mr-2'
-                        >
-                          Distribuir
-                        </button>
+                        <Link to={`../distribuir/${product.id}`}>
+                          <button
+                            type='button'
+                            className='focus:outline-none text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:blue-green-300 rounded-lg text-lg px-3 py-1 mr-2'
+                          >
+                            Distribuir
+                          </button>
+                        </Link>
                         <Link to={`../editarProducto?id=${product.id}`}>
                           <button
                             type='button'

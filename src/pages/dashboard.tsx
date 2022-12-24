@@ -4,8 +4,9 @@ import { ProductsContextProvider } from '../context/ProductsContext';
 import Nav from '../components/nav/Nav';
 import NavDesktop from '../components/nav/NavDesktop';
 import { useState, useContext } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigation } from 'react-router-dom';
 import { SessionContext } from '../context/SessionContext';
+import TableSkeleton from '../components/TableSkeleton/TableSkeleton';
 
 export default function Dashboard() {
   const [navIsOpen, setNavIsOpen] = useState(false);
@@ -17,6 +18,8 @@ export default function Dashboard() {
     setNavIsOpen(true);
   };
   const { alreadyLogged } = useContext(SessionContext)!;
+
+  const navigation = useNavigation();
 
   if (!alreadyLogged) {
     return (
@@ -74,7 +77,13 @@ export default function Dashboard() {
           />
           <div className='lg:flex items-start w-full '>
             <NavDesktop />
-            <Outlet />
+            {navigation.state === 'loading' ? (
+              <div className='w-full lg:pl-[260px]'>
+                <TableSkeleton />
+              </div>
+            ) : (
+              <Outlet />
+            )}
           </div>
         </main>
       </>

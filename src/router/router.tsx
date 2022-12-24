@@ -5,8 +5,11 @@ import Table from '../components/productTable/Table';
 import AddProduct from '../pages/AddProduct';
 import LittleStock from '../pages/LittleStock';
 import EditProduct from '../pages/EditProduct';
+import DistributeProducts from '../pages/DistributeProducts';
 import { SessionContextProvider } from '../context/SessionContext';
 import { TableContextProvider } from '../context/TableContext';
+import { DistributeProductsProvider } from '../context/DistributeProductsContext';
+import { loader as distributeLoader } from '../helpers/distributeProductsLoader';
 
 const router = createBrowserRouter([
   {
@@ -78,6 +81,15 @@ const router = createBrowserRouter([
       {
         path: 'editarProducto',
         element: <EditProduct />,
+      },
+      {
+        path: 'distribuir/:id',
+        element: (
+          <DistributeProductsProvider>
+            <DistributeProducts />
+          </DistributeProductsProvider>
+        ),
+        loader: distributeLoader,
       },
     ],
   },

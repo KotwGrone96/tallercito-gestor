@@ -11,6 +11,8 @@ export interface FetchResponse {
   categories?: Categories[];
   products?: Product[];
   proveedores?: Proveedor[];
+  stores?: Store[];
+  productStock?: ProductStock[];
 }
 
 export interface UserProps {
@@ -37,10 +39,36 @@ interface Product {
   idLocal?: number;
   user?: string;
   pass?: String;
+  idRowStore?: number | string;
+  cantidadTotal?: number;
 }
 interface Proveedor {
   id: number;
   nombreProveedor: string;
   direccion: string;
   telefono: string;
+}
+
+interface Store {
+  id: number;
+  nombreDeLocal: string;
+  direccion: string;
+  codPostal: string;
+}
+
+interface StoresStock {
+  LocalSanMartin: number;
+  LocalSC60: number;
+  LocalSC84: number;
+  user?: string;
+  pass?: string;
+  idProducto?: number;
+}
+
+interface ProductStock {
+  id: number;
+  idProducto: number;
+  idLocal: number;
+  cantidadLocal: number;
+  nombreDeLocal: string;
 }
