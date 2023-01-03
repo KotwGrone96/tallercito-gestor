@@ -1,15 +1,16 @@
+import { NavLink } from 'react-router-dom';
+import { navItems } from './navItems';
+import { setCookie } from 'react-use-cookie';
+
 interface NavProps {
   isOpen: boolean;
   setIsOpen: () => any;
 }
-import { NavLink, useNavigate } from 'react-router-dom';
-import { navItems } from './navItems';
 
 export default function Nav({ isOpen, setIsOpen }: NavProps) {
-  const navigate = useNavigate();
-
   const logOut = () => {
-    navigate('/eltallercitogestor');
+    setCookie('userData', '');
+    window.location.reload();
   };
 
   return (

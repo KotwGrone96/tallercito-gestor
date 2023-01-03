@@ -27,7 +27,7 @@ export default function CustomDistributeInput({
     const getStock = async () => {
       const res: FetchResponse = await simpleFetchPost(
         JSON.stringify(userSession),
-        `http://localhost:80/tallercito/getProductStock.php?idStore=${idLocal}&idProduct=${idProducto}`
+        `https://nelsongamerodev.com/eltallercitogestor/api/getProductStock.php?idStore=${idLocal}&idProduct=${idProducto}`
       );
 
       if (res.productStock?.length === 0) {

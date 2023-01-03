@@ -9,18 +9,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "localforage": "1.10.0",
-    "match-sorter": "6.3.1",
     "moment": "2.29.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "6.4.3",
-    "react-use-cookie": "1.4.0",
-    "sort-by": "1.2.0"
+    "react-use-cookie": "1.4.0"
   },
   "devDependencies": {
     "@types/react": "18.0.22",
     "@types/react-dom": "18.0.7",
+    "@types/react-helmet": "^6.1.6",
     "@vitejs/plugin-react": "2.2.0",
     "autoprefixer": "10.4.13",
     "postcss": "8.4.18",

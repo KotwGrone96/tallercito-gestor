@@ -7,6 +7,7 @@ import { useState, useContext } from 'react';
 import { Outlet, useNavigation } from 'react-router-dom';
 import { SessionContext } from '../context/SessionContext';
 import TableSkeleton from '../components/TableSkeleton/TableSkeleton';
+import { Helmet } from 'react-helmet';
 
 export default function Dashboard() {
   const [navIsOpen, setNavIsOpen] = useState(false);
@@ -22,6 +23,9 @@ export default function Dashboard() {
   const navigation = useNavigation();
 
   if (!alreadyLogged) {
+    <Helmet>
+      <title>El Tallercito - Dashboard</title>
+    </Helmet>;
     return (
       <div className='w-full min-h-screen flex justify-center items-center flex-col bg-purple-100'>
         <h3 className='p-8 text-2xl font-semibold italic text-purple-700 lg:text-4xl'>
@@ -51,6 +55,9 @@ export default function Dashboard() {
   return (
     <ProductsContextProvider>
       <>
+        <Helmet>
+          <title>El Tallercito - Dashboard</title>
+        </Helmet>
         <header className='w-full h-20 bg-purple-900 flex justify-between items-center px-6 fixed z-[100]'>
           <div
             className='w-9 h-9 cursor-pointer lg:hidden'

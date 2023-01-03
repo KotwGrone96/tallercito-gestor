@@ -45,7 +45,7 @@ export default function DistributeProducts() {
 
     const res: FetchResponse = await simpleFetchPost(
       JSON.stringify(storesData),
-      `http://localhost:80/tallercito/distributeProducts.php?idProduct=${product.id}`
+      `https://nelsongamerodev.com/eltallercitogestor/api/distributeProducts.php?idProduct=${product.id}`
     );
 
     if (!res.ok) {
@@ -78,15 +78,15 @@ export default function DistributeProducts() {
   const getData = async () => {
     const resStore1: FetchResponse = await simpleFetchPost(
       JSON.stringify(userSession),
-      `http://localhost:80/tallercito/getProductStock.php?idStore=1&idProduct=${product.id}`
+      `https://nelsongamerodev.com/eltallercitogestor/api/getProductStock.php?idStore=1&idProduct=${product.id}`
     );
     const resStore2: FetchResponse = await simpleFetchPost(
       JSON.stringify(userSession),
-      `http://localhost:80/tallercito/getProductStock.php?idStore=2&idProduct=${product.id}`
+      `https://nelsongamerodev.com/eltallercitogestor/api/getProductStock.php?idStore=2&idProduct=${product.id}`
     );
     const resStore3: FetchResponse = await simpleFetchPost(
       JSON.stringify(userSession),
-      `http://localhost:80/tallercito/getProductStock.php?idStore=3&idProduct=${product.id}`
+      `https://nelsongamerodev.com/eltallercitogestor/api/getProductStock.php?idStore=3&idProduct=${product.id}`
     );
 
     const store1: ProductStock | undefined = resStore1.productStock![0];
