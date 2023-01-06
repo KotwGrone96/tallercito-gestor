@@ -1,16 +1,15 @@
 import simpleFetchPost from '../../helpers/simpleFetchPost';
-import { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { FetchResponse, Product } from '../../vite-env';
 import { SessionContext } from '../../context/SessionContext';
+import { Link } from 'react-router-dom';
 
 export default function SearchBar() {
   const [productsList, setProductsList] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [openMenu, setOpenMenu] = useState(false);
   const { userSession } = useContext(SessionContext)!;
-
-  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  };
+  const [searchInputValue, setSearchInputValue] = useState('');
 
   useEffect(() => {
     const getAllProducts = async () => {
@@ -28,6 +27,22 @@ export default function SearchBar() {
 
     getAllProducts();
   }, []);
+  const openSearchBarMenu = () => {
+    openMenu ? setOpenMenu(false) : setOpenMenu(true);
+  };
+
+  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    openSearchBarMenu();
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const searchValue = e.target.value
+      .toLocaleLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+    setSearchInputValue(searchValue);
+  };
 
   if (isLoading) {
     return (
@@ -103,39 +118,74 @@ export default function SearchBar() {
               type='text'
               id='products'
               list='products-list'
-              className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full pl-10 p-2.5'
+              className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full pl-10 p-2.5 cursor-pointer'
               placeholder='Buscar producto'
-              required
+              onClick={openSearchBarMenu}
+              onChange={handleChange}
             />
-            <datalist id='products-list'>
-              {productsList.map((product) => (
-                <option
-                  value={product.nombreProducto}
-                  key={product.id}
-                >
-                  {product.sku}
-                </option>
-              ))}
-            </datalist>
+
+            <ul
+              className={`${
+                openMenu ? 'block' : 'hidden'
+              } w-full absolute left-0 top-12 z-[60] max-h-[150px] lg:max-h-[200px] text-white rounded-2xl overflow-y-scroll`}
+            >
+              {productsList
+                .filter((product) => {
+                  if (searchInputValue === '') return true;
+                  const productName = product.nombreProducto
+                    .toLocaleLowerCase()
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '');
+
+                  return (
+                    productName.includes(searchInputValue) || product.sku.includes(searchInputValue)
+                  );
+                })
+                .map((product) => (
+                  <Link
+                    key={product.id}
+                    to={`../editarProducto?id=${product.id}`}
+                    className='first:rounded-t-2xl last:rounded-b-2xl'
+                  >
+                    <li className='w-full border  border-b-white p-2 bg-purple-700 hover:bg-purple-500 cursor-pointer'>
+                      <div className='flex items-center justify-start gap-4 relative'>
+                        <img
+                          className='w-8 h-8 rounded-full object-contain '
+                          src={`https://nelsongamerodev.com/eltallercitogestor/images/${product.img}`}
+                          alt={product.nombreProducto}
+                        />
+                        <h5 className='font-medium'>{product.nombreProducto}</h5>
+                      </div>
+                      <p className='font-medium pl-12'>
+                        SKU: #<span>{product.sku}</span>
+                      </p>
+                    </li>
+                  </Link>
+                ))}
+            </ul>
           </div>
           <button
             type='submit'
             className='p-2.5 ml-2 text-sm font-medium text-white bg-purple-700 rounded-lg border border-purple-900 hover:bg-purple-600 focus:ring-4 focus:outline-none focus:ring-purple-300   '
           >
-            <svg
-              className='w-5 h-5'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
-              />
-            </svg>
+            {openMenu ? (
+              <span className='w-5 h-5 px-[5px]'>X</span>
+            ) : (
+              <svg
+                className='w-5 h-5'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={2}
+                  d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
+                />
+              </svg>
+            )}
             <span className='sr-only'>Search</span>
           </button>
         </form>
