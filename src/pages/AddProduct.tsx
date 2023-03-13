@@ -150,6 +150,7 @@ export default function AddProduct() {
                 onChange={handleChange}
                 minLength={3}
                 maxLength={100}
+                required
               />
               <label
                 htmlFor='nombreDeProducto'
@@ -174,13 +175,14 @@ export default function AddProduct() {
                 Underline select
               </label>
               {isLoading ? (
-                <select className='block py-2.5 w-full text-sm text-gray-500 bg-gray-50 border-0 border-b-2 border-violet-300 appearance-none focus:outline-none focus:ring-0 peer rounded-t-lg px-2.5 pb-2.5 pt-5 focus:border-violet-600 cursor-pointer my-6'>
+                <select className='block py-2.5 w-full text-sm text-gray-500 bg-gray-50 border-0 border-b-2 border-violet-300 appearance-none focus:outline-none focus:ring-0 peer rounded-t-lg px-2.5 pb-2.5 pt-5 focus:border-violet-600 cursor-pointer my-6' required>
                   <option defaultValue='Elija una categoría'>Cargando...</option>
                 </select>
               ) : (
                 <select
                   id='underline_select_2'
                   name='proveedor'
+                  required
                   className='block py-2.5 w-full text-sm text-gray-500 bg-gray-50 border-0 border-b-2 border-violet-300 appearance-none focus:outline-none focus:ring-0 peer rounded-t-lg px-2.5 pb-2.5 pt-5 focus:border-violet-600 cursor-pointer my-6'
                 >
                   <option defaultValue='Elija una categoría'>Elija un proveedor</option>
@@ -213,6 +215,7 @@ export default function AddProduct() {
                 <select
                   id='underline_select'
                   name='categoria'
+                  required
                   className='block py-2.5 w-full text-sm text-gray-500 bg-gray-50 border-0 border-b-2 border-violet-300 appearance-none focus:outline-none focus:ring-0 peer rounded-t-lg px-2.5 pb-2.5 pt-5 focus:border-violet-600 cursor-pointer'
                 >
                   <option defaultValue='Elija una categoría'>Elija una categoría</option>
@@ -236,6 +239,7 @@ export default function AddProduct() {
                   name='sku'
                   className='block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 border-0 border-b-2 border-violet-300 appearance-none focus:outline-none focus:ring-0 focus:border-violet-600 peer'
                   placeholder=' '
+                  required
                 />
                 <label
                   htmlFor='sku'
@@ -250,6 +254,7 @@ export default function AddProduct() {
                   id='cantidad'
                   name='cantidad'
                   min={1}
+                  required
                   className='block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 border-0 border-b-2 border-violet-300 appearance-none focus:outline-none focus:ring-0 focus:border-violet-600 peer'
                   placeholder=' '
                 />
@@ -265,6 +270,7 @@ export default function AddProduct() {
                   type='text'
                   id='precio'
                   name='precio'
+                  required
                   className='block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 border-0 border-b-2 border-violet-300 appearance-none focus:outline-none focus:ring-0 focus:border-violet-600 peer'
                   placeholder=' '
                 />

@@ -27,16 +27,22 @@ export default function SearchBar() {
 
     getAllProducts();
   }, []);
-  const openSearchBarMenu = () => {
-    openMenu ? setOpenMenu(false) : setOpenMenu(true);
-  };
+  // const openSearchBarMenu = () => {
+  //   openMenu ? setOpenMenu(false) : setOpenMenu(true);
+  // };
 
-  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    openSearchBarMenu();
-  };
+  // const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   openSearchBarMenu();
+  // };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value == '') {
+      setOpenMenu(false);
+      return;
+    }
+    setOpenMenu(true);
+
     const searchValue = e.target.value
       .toLocaleLowerCase()
       .normalize('NFD')
@@ -88,10 +94,7 @@ export default function SearchBar() {
   return (
     <>
       <div className='w-full m-auto max-w-2xl p-4'>
-        <form
-          className='flex items-center'
-          onSubmit={handleSubmit}
-        >
+        <form className='flex items-center'>
           <label
             htmlFor='products'
             className='sr-only'
@@ -120,7 +123,6 @@ export default function SearchBar() {
               list='products-list'
               className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full pl-10 p-2.5 cursor-pointer'
               placeholder='Buscar producto'
-              onClick={openSearchBarMenu}
               onChange={handleChange}
             />
 
@@ -164,7 +166,7 @@ export default function SearchBar() {
                 ))}
             </ul>
           </div>
-          <button
+          {/* <button
             type='submit'
             className='p-2.5 ml-2 text-sm font-medium text-white bg-purple-700 rounded-lg border border-purple-900 hover:bg-purple-600 focus:ring-4 focus:outline-none focus:ring-purple-300   '
           >
@@ -187,7 +189,7 @@ export default function SearchBar() {
               </svg>
             )}
             <span className='sr-only'>Search</span>
-          </button>
+          </button> */}
         </form>
       </div>
     </>
